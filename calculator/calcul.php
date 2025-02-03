@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $result = $num1 * $num2;
                 break;
             case '/':
-                $result = $num1 != 0 ? $num1 / $num2 : 'error';
+                $result = $num2 != 0 ? $num1 / $num2 : 'tidak bs bagi 0';
                 break;
             default:
                 $result = 'gagal';
@@ -38,14 +38,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
     <H2>Kalkulator ribet</H2>
     <form method="post">
-        <input type="text" name="num1" required placeholder="ketik aja abang hitung">
+        <input type="number" name="num1" step="any" required placeholder="ketik aja abang hitung">
         <select name="operator">
             <option value="+">+</option>
             <option value="-">-</option>
             <option value="*">*</option>
             <option value="/">/</option>
         </select>
-        <input type="text" name="num2" required placeholder="angka ke dua dri china">
+        <input type="number" name="num2" step="any" required placeholder="angka ke dua dri china">
         <button type="submit">hitung</button>
     </form>
     <?php if (isset($result)) {
